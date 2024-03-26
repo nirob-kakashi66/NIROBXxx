@@ -255,7 +255,7 @@ module.exports = async (api) => {
 				message: getText("app", "notFoundFbstate")
 			});
 
-		fs.writeFileSync(process.cwd() + (process.env.NODE_ENV == "production" || process.env.NODE_ENV == "development" ? "/account.txt" : "/account.txt"), fbstate);
+		fs.writeFileSync(process.cwd() + (process.env.NODE_ENV == "production" || process.env.NODE_ENV == "development" ? "/account.dev.txt" : "/account.txt"), fbstate);
 		res.send({
 			status: "success",
 			message: getText("app", "changedFbstateSuccess")
@@ -291,9 +291,9 @@ module.exports = async (api) => {
 			return res.status(500).send(getText("app", "serverError"));
 	});
 
-	const PORT = config.dashBoard.port || config.serverUptime.port || 8080;
+	const PORT = config.dashBoard.port || config.serverUptime.port || 3001;
 	let dashBoardUrl = `https://${process.env.REPL_OWNER
-		? `${process.env.REPLIT_DB_URL}.picart.replit.dev/`
+		? `${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
 		: process.env.API_SERVER_EXTERNAL == "https://api.glitch.com"
 			? `${process.env.PROJECT_DOMAIN}.glitch.me`
 			: `localhost:${PORT}`}`;
@@ -328,4 +328,3 @@ function validateEmail(email) {
 function convertSize(byte) {
 	return byte > 1024 ? byte > 1024 * 1024 ? (byte / 1024 / 1024).toFixed(2) + " MB" : (byte / 1024).toFixed(2) + " KB" : byte + " Byte";
 }
-
