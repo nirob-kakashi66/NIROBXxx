@@ -293,7 +293,7 @@ module.exports = async (api) => {
 
 	const PORT = config.dashBoard.port || config.serverUptime.port || 3001;
 	let dashBoardUrl = `https://${process.env.REPL_OWNER
-		? `${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
+		? `${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.dev`
 		: process.env.API_SERVER_EXTERNAL == "https://api.glitch.com"
 			? `${process.env.PROJECT_DOMAIN}.glitch.me`
 			: `localhost:${PORT}`}`;
