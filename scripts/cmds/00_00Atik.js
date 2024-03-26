@@ -9,7 +9,7 @@ module.exports = {
 		author: "EUGENE AGUILAR",
 		shortDescription: "Download TikTok videos",
 		countDown: 0,
-		category: "TOOLS",
+		category: "TOOL",
 		guide: {
 			en: '{p}tik video <link>\ntik audio <link>'
 		}

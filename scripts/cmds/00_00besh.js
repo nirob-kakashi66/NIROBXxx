@@ -53,7 +53,7 @@ module.exports = {
 				if (error.response) {
 					console.log(error.response.status);
 					console.log(error.response.data);
-					if (error.response.status == 401 && error.response.data.error.message.startsWith("You didn't provide an API key")) {
+					if (error.response.status == 429 && error.response.data.error.message.startsWith("You didn't provide an API key")) {
 						api.sendMessage("API-Key is missing.", event.threadID, event.messageID);
 					}
 				} else {
